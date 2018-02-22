@@ -7,7 +7,6 @@
 # @param secret_key Second half of the credentials to authenticate the agent.
 # @param version Version of the agent to install.
 # @param manage_sudoers Whether to manage the agent users's sudo access.
-# @param user_home Home directory for the agent user and executables.
 # @param user_shell Shell for the agent user. Defaults to false on Linux and
 #   macOS to prevent logins as the agent user.
 # @param user_password Password for the agent user. This must be set on Windows.
@@ -18,7 +17,6 @@ class pipelines::agent (
   Sensitive[String[1]]           $secret_key,
   String[1]                      $version        = '3.66.33',
   Boolean                        $manage_sudoers = true,
-  String[1]                      $user_home      = $pipelines::agent::params::user_home,
   Optional[String[1]]            $user_shell     = $pipelines::agent::params::user_shell,
   Optional[Sensitive[String[1]]] $user_password  = undef,
   Optional[String[1]]            $endpoint       = undef,
